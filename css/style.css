@@ -1,0 +1,40 @@
+.year-selection {
+	margin-top: 1%;
+	margin-bottom: 1%;
+	margin-left: 5vw;
+	float:left;
+}
+
+html,body {
+	font-family: 'Poppins', sans-serif;
+}
+
+.stadium-selection {
+	margin-top: 1%;
+	margin-bottom: 1%;
+	margin-right: 5vw;
+	float: right;
+}
+
+#map { 
+	clear: both;
+ 	height: 35vw;
+ 	margin-right: 5vw;
+   	margin-left: 5vw;
+   	margin-bottom: 3vw;
+}
+
+li {
+	text-align: center;
+	padding-top: 0.5vw;
+	padding-bottom: 0.5vw;
+}
+
+.list-years {
+	cursor: pointer;
+}
+
+.list-years:hover {
+	cursor: pointer;
+	background-color: #e6dbd7;
+}
