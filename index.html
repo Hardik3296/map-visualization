@@ -22,16 +22,18 @@
    				crossorigin=""></script>
    		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
    		<link rel="stylesheet" href="css/leaflet.awesome-markers.css">
+   		<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+   		<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
    		<script src="js/leaflet.awesome-markers.js"></script>
    		<title>Learning Leaflet</title>
    	</head>
 	<body>
 		<h1 class="text-center">History of African Cup of Nations</h1>
-		<!--- Slecting year of African cup edition-->
-		 <div class="dropdown year-selection" id="year-selection">
-			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Year
+		<!---Selecting year of African cup edition-->
+		 <div class="dropdown year-selection" id="year-selection" style="visibility: hidden;">
+			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="selected-year">Select Year
 			<span class="caret"></span></button>
-			<ul class="dropdown-menu" id="selected-year">
+			<ul class="dropdown-menu" >
 				<li id="2017" class="list-years">2017</li>
 				<li id="2015" class="list-years">2015</li>
 				<li id="2013" class="list-years">2013</li>
@@ -40,24 +42,40 @@
 				<li id="2008" class="list-years">2008</li>
 			</ul>
 		</div> 
-		<div class="dropdown year-selection" id="year-selection">
-			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Year</button>
+		<!--Some knowledge about the host city-->
+		<div class="dropdown city-knowledge" id="city-selection" style="visibility: hidden">
+			<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal">Click to know more about the city</button>
 		</div> 
-		<div class="dropdown stadium-selection" id="stadium-selection" style="display: none;">
+		<!--Selecting the particular stadium-->
+		<div class="dropdown stadium-selection" id="stadium-selection" style="visibility: hidden;">
 			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Stadium
 			<span class="caret"></span></button>
 			<ul class="dropdown-menu" id="selected-stadium">
-				<li id="2017" class="list-years"></li>
-				<li id="2015" class="list-years"></li>
-				<li id="2013" class="list-years"></li>
-				<li id="2012" class="list-years"></li>
-				<li id="2010" class="list-years"></li>
-				<li id="2008" class="list-years"></li>
 			</ul>
 		</div>
 		<div id="map"></div>
-		<script type="text/javascript" src="js/Facilities.js"></script>
 		<script type="text/javaScript" src="js/map.js"></script>
+		<p id="para"></p>
+
+		<div class="modal fade" id="myModal" role="dialog">
+		    <div class="modal-dialog">
+		    
+		      <!-- Modal content-->
+			      <div class="modal-content">
+				        <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal">&times;</button>
+					        <h4 class="modal-title"></h4>
+					    </div>
+					    <div class="modal-body">
+					        <p>Some text in the modal.</p>
+					    </div>
+					    <div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        </div>
+			      </div>
+		      
+		    </div>
+	  	</div>
 	</body>
 </html>
 	
