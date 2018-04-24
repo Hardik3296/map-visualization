@@ -1,14 +1,15 @@
 <?php
 	require('database.php');
-	$stadium_name = $_POST['stadium_name'];
-	$sql = "SELECT longitude,latitude FROM stadiums WHERE stadium_name = '$stadium_name'";
+	$year = $_POST['year'];
+	$sql = "SELECT * FROM facts WHERE `year` = $year";
 	$result = mysqli_query($connection,$sql);
 	if(mysqli_num_rows($result) > 0) {
 		$row = mysqli_fetch_assoc($result);
+		mysqli_close($connection);
 		echo json_encode($row);
 	}
 	else {
-		echo json_encode(mysqli_error($connection));
 		mysqli_close($connection);
+		echo json_encode(mysqli_error($connection));
 	}
 ?>

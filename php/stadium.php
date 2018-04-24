@@ -2,7 +2,7 @@
 	require('database.php');
 	$year = $_POST['year'];
 	//$sql = "SELECT stadium_name FROM venues_$year";
-	$sql = "SELECT stadium_name,latitude,longitude,city FROM stadiums NATURAL JOIN venues_$year";
+	$sql = "SELECT stadium_name,latitude,longitude,city,country FROM stadiums NATURAL JOIN venues_$year";
 	$stadium_name = array();
 	$index = 0;
 	$result = mysqli_query($connection,$sql);
@@ -11,9 +11,10 @@
 			$stadium_name[$index++] = $row;
 		}
 		echo json_encode($stadium_name);
+		mysqli_close($connection);
 	}
 	else {
 		echo mysqli_error($connection);
+		mysqli_close($connection);
 	}
-	mysqli_close($connection);
 ?>
