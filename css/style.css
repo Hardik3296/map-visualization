@@ -16,6 +16,15 @@ html,body {
 	float: right;
 }
 
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    margin-top: 1vw;
+    height: 50%;
+}
+
 #map { 
 	clear: both;
  	height: 35vw;
@@ -49,7 +58,7 @@ li {
 #adding-details {
 	margin-bottom: 2vw;
 	margin-top: 0.1%;
-	margin-left: 43%;
+	margin-left: 5vw;
 	float:left;
 }
 
