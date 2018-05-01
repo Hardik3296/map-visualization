@@ -1,4 +1,5 @@
 <?php
+	//PHp file to query the database and find all the different factes about the particular edition of the tournament
 	require('database.php');
 	$year = $_POST['year'];
 	$sql = "SELECT * FROM facts WHERE `year` = $year";
