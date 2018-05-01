@@ -55,6 +55,7 @@ $(document).ready(function(){
 							longitude = response['longitude'];			
 						}
 					});
+					// Sending asynchronous request to database for information regarding the tournament of that particular year
 					$.ajax({
 						url: 'php/tournament_facts.php',
 						dataType: 'json',
@@ -127,6 +128,7 @@ $(document).ready(function(){
 				longitude = response['longitude'];			
 			}
 		});
+		// Sending asynchronous request to database for information regarding the tournament of that particular year
 		$.ajax({
 			url: 'php/tournament_facts.php',
 			dataType: 'json',
@@ -166,6 +168,7 @@ $(document).ready(function(){
 				longitude = response['longitude'];			
 			}
 		});
+		// Sending asynchronous request to database for information regarding the tournament of that particular year
 		$.ajax({
 			url: 'php/tournament_facts.php',
 			dataType: 'json',
@@ -206,6 +209,7 @@ $(document).ready(function(){
 				longitude = response['longitude'];			
 			}
 		});
+		// Sending asynchronous request to database for information regarding the tournament of that particular year
 		$.ajax({
 			url: 'php/tournament_facts.php',
 			dataType: 'json',
@@ -245,6 +249,7 @@ $(document).ready(function(){
 				longitude = response['longitude'];			
 			}
 		});
+		// Sending asynchronous request to database for information regarding the tournament of that particular year
 		$.ajax({
 			url: 'php/tournament_facts.php',
 			dataType: 'json',
@@ -284,6 +289,7 @@ $(document).ready(function(){
 				longitude = response['longitude'];			
 			}
 		});
+		// Sending asynchronous request to database for information regarding the tournament of that particular year
 		$.ajax({
 			url: 'php/tournament_facts.php',
 			dataType: 'json',
@@ -322,6 +328,7 @@ $(document).ready(function(){
 				longitude = response['longitude'];			
 			}
 		});
+		// Sending asynchronous request to database for information regarding the tournament of that particular year
 		$.ajax({
 			url: 'php/tournament_facts.php',
 			dataType: 'json',
@@ -350,7 +357,7 @@ $(document).ready(function(){
 	//Checking for click to the newly added elements to the stadium tab
 	$('#selected-stadium').delegate('li','click',function() {
 		nameOfStadium = this.innerHTML;
-		//Sending asynchronous request to the database 
+		//Sending asynchronous request to the database to set map view on the selected stadium
 		$.ajax({
 			url: 'php/set_stadium.php',
 			dataType: 'json',
@@ -363,7 +370,7 @@ $(document).ready(function(){
 				alert(error_statement)
 			}
 		});
-		//Sending asynchronous request to the database 
+		//Sending asynchronous request to the database to find the city of the selected stadium
 		$.ajax({
 			url: 'php/stadium_details.php',
 			 dataType: 'json',
@@ -383,7 +390,9 @@ $(document).ready(function(){
 			document.getElementById('city-selection').style.visibility = 'visible';
 		}
 	});
-
+	
+	// Function to display images for the stadium if the user selects the button to display 
+	//additional information about the city and if the stadium is one of the following given below.
 	$('#myModal').on('shown.bs.modal', function (event) {
 		//console.log(nameOfStadium);
 		switch(nameOfStadium) {
@@ -600,7 +609,7 @@ $(document).ready(function(){
 
 	// Function to check if the close button was clicked or not
 	$("#detail-close").click(function() {
-		// Setting the close button clicked property as true
+	// Setting the close button clicked property as true
     	$('#detail-close').data('clicked', true);
     	// Setting the adding details button property as false
     	$('#adding-details').data('clicked', false);
@@ -656,7 +665,8 @@ $(document).ready(function(){
 			}
 		}
 	});
-
+	
+	//Checking if the stadium selected by the user belongs to one of the cities given below or not
 	$('#location-selection').click(function(){
 		var queryCity = '';
 		switch(cityName.toLowerCase()) {
@@ -692,7 +702,7 @@ $(document).ready(function(){
 			break;
 		}
 		if(queryCity !='') { 
-		//Sending asynchronous request to the database 
+		//Sending asynchronous request to the database to find ll the tourist attractions in the city
 			$.ajax({
 				url: 'php/location_details.php',
 				 dataType: 'json',
@@ -703,8 +713,8 @@ $(document).ready(function(){
 					locationMarkers(response);
 				},
 				error: function (argument,error_statement) {
-					console.log(argument);
-					console.log(error_statement);
+					alert(argument);
+					alert(error_statement);
 				}
 			});
 		}
@@ -713,7 +723,8 @@ $(document).ready(function(){
 				document.getElementById('location-selection').style.visibility = 'hidden';
 		}
 	});
-
+	
+	// Function to apply markers on the map for all the tourist location in and around the city
 	function locationMarkers(response) {
 		var blueMarker = L.AwesomeMarkers.icon({
 			extraClasses:'ion-ios7-person',
